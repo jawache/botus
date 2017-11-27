@@ -1,0 +1,80 @@
+{
+  "USD": {
+    "ccy": "USD",
+    "amount": -1648.6687173066555,
+    "latestRate": 1,
+    "usdValue": -1648.67
+  },
+  "PHP": {
+    "ccy": "PHP",
+    "amount": 15364.920000000002,
+    "latestRate": 50.634,
+    "usdValue": 303.45
+  },
+  "CNY": {
+    "ccy": "CNY",
+    "amount": 664.0099999999999,
+    "latestRate": 6.5395,
+    "usdValue": 101.54
+  },
+  "JPY": {
+    "ccy": "JPY",
+    "amount": 33654.12,
+    "latestRate": 111.54493152,
+    "usdValue": 301.71
+  },
+  "SGD": {
+    "ccy": "SGD",
+    "amount": 135.88,
+    "latestRate": 1.345397,
+    "usdValue": 101
+  },
+  "PKR": {
+    "ccy": "PKR",
+    "amount": 10537.5,
+    "latestRate": 104.629497,
+    "usdValue": 100.71
+  },
+  "JMD": {
+    "ccy": "JMD",
+    "amount": 12984,
+    "latestRate": 125.102918,
+    "usdValue": 103.79
+  },
+  "JOD": {
+    "ccy": "JOD",
+    "amount": 70.9,
+    "latestRate": 0.709001,
+    "usdValue": 100
+  },
+  "VEF": {
+    "ccy": "VEF",
+    "amount": 1017.05,
+    "latestRate": 9.985022,
+    "usdValue": 101.86
+  },
+  "INR": {
+    "ccy": "INR",
+    "amount": 6415.11,
+    "latestRate": 64.555,
+    "usdValue": 99.37
+  },
+  "GBP": {
+    "ccy": "GBP",
+    "amount": 153.95,
+    "latestRate": 0.7498,
+    "usdValue": 205.32
+  },
+  "PLN": {
+    "ccy": "PLN",
+    "amount": 371.28,
+    "latestRate": 3.52795,
+    "usdValue": 105.24
+  },
+  "GEL": {
+    "ccy": "GEL",
+    "amount": 240.79,
+    "latestRate": 2.697175,
+    "usdValue": 89.27
+  }
+}

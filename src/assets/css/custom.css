@@ -1,0 +1,13 @@
+twitterwidget{
+  margin: 0 !important;
+  width: 100% !important;
+}
+.bg-dark{
+  background-color: #36404a!important;
+}
+.wrapper {
+    padding-top: 60px !important;
+}
+.center-text{
+  text-align: center;
+}
