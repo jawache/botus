@@ -13,6 +13,7 @@ import { RouterModule } from "@angular/router";
 import { HttpClientModule } from "@angular/common/http";
 import { routes } from "./app.routes";
 import { TweetsService } from "./tweets/tweets.service";
+import { TradesService } from "./trades/trades.service";
 
 @NgModule({
   declarations: [
@@ -29,7 +30,7 @@ import { TweetsService } from "./tweets/tweets.service";
     BrowserModule,
     RouterModule.forRoot(routes, { useHash: true })
   ],
-  providers: [TweetsService],
+  providers: [TweetsService, TradesService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

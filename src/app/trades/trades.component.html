@@ -1,3 +1,29 @@
-<p>
-  trades works!
-</p>
+<div class="wrapper">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <div class="card-box">
+          <h4 class="header-title m-t-0">All Trades</h4>
+          <table class="table mb-0 table-responsive">
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Ccy</th>
+                <th>Side</th>
+                <th>Quantity</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let trade of trades$ | async">
+                <td>{{trade.ts | date: 'short'}}</td>
+                <td>{{trade.ccy}}</td>
+                <td>{{trade.side}}</td>
+                <td>{{trade.quantity }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
