@@ -14,14 +14,19 @@
     <div class="row row-eq-height">
       <div class="col-lg-6">
         <div class="card-box">
-          <blockquote class="twitter-tweet" data-cards="hidden" data-lang="en">
-            <p lang="en" dir="ltr">We had a wonderful visit to Vietnam, thank you President Tran Dai Quang! Heading to the
+          <blockquote class="twitter-tweet"
+                      data-cards="hidden"
+                      data-lang="en">
+            <p lang="en"
+               dir="ltr">We had a wonderful visit to Vietnam, thank you President Tran Dai Quang! Heading to the
               <a href="https://twitter.com/hashtag/ASEANSummit?src=hash&amp;ref_src=twsrc%5Etfw">#ASEANSummit</a> 50th Anniv Gala in the Philippines now.
               <a href="https://t.co/WfSd8EE3Nm">pic.twitter.com/WfSd8EE3Nm</a>
             </p>&mdash; Donald J. Trump (@realDonaldTrump)
             <a href="https://twitter.com/realDonaldTrump/status/929670192434745344?ref_src=twsrc%5Etfw">November 12, 2017</a>
           </blockquote>
-          <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+          <script async
+                  src="https://platform.twitter.com/widgets.js"
+                  charset="utf-8"></script>
 
         </div>
       </div>
@@ -45,35 +50,50 @@
       <p class="text-muted m-b-25 font-13">
         All tweets from @realDonaldTrump
       </p>
-      <table class="table mb-0 table-responsive">
-        <thead>
-          <tr>
-            <th>Date</th>
-            <th>Time</th>
-            <th>Phrases</th>
-            <th>Sentiment</th>
-            <th>Tweet</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let tweet of tweets$ | async | slice:0:100 ">
-            <td>{{tweet.ts | date: 'fullDate'}}</td>
-            <td>{{tweet.ts | date: 'shortTime'}}</td>
-            <td>
-              <div *ngFor="let phrase of tweet.phrases | slice:0:3">
-                <ins class="text-default">
-                  {{phrase}}</ins>&nbsp; |
-              </div>
-            </td>
-            <td>
-              <img src="assets/images/logo_postive.png" width="80" height="80" alt="logo" *ngIf="tweet.sentiment > 0.66">
-              <img src="assets/images/logo.png" width="80" height="80" alt="logo" *ngIf="tweet.sentiment <= 0.66 && tweet.sentiment >= 0.33">
-              <img src="assets/images/logo_negative.png" width="80" height="80" alt="logo" *ngIf="tweet.sentiment < 0.33">
-            </td>
-            <td>{{tweet.text}}</td>
-          </tr>
-        </tbody>
-      </table>
+
+      <div class="list-group">
+        <a href="#"
+           *ngFor="let tweet of tweets$ | async | slice:0:100"
+           class="list-group-item list-group-item-action flex-column align-items-start">
+          <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-2">
+
+              <img src="assets/images/logo_postive.png"
+                   width="80"
+                   height="80"
+                   alt="logo"
+                   *ngIf="tweet.sentiment > 0.66">
+              <img src="assets/images/logo.png"
+                   width="80"
+                   height="80"
+                   alt="logo"
+                   *ngIf="tweet.sentiment <= 0.66 && tweet.sentiment >= 0.33">
+              <img src="assets/images/logo_negative.png"
+                   width="80"
+                   height="80"
+                   alt="logo"
+                   *ngIf="tweet.sentiment < 0.33">
+
+            </h5>
+            <small>{{ timeAgo(tweet.ts) }}</small>
+          </div>
+
+          <p class="mb-2">{{tweet.text}}</p>
+
+          <small class="row justify-content-between">
+            <div class="col-12 col-md-6 order-md-6 text-md-right mb-1 mb-md-0">
+              <span *ngFor="let phrase of tweet.phrases | slice:0:3; let last = last">
+                <ins class="text-default">{{phrase}}</ins>
+                <span *ngIf="!last"> | </span>
+              </span>
+            </div>
+            <div class="col-12 col-md-6 order-md-1">
+              {{tweet.ts | date: 'fullDate'}}
+            </div>
+          </small>
+
+        </a>
+      </div>
     </div>
 
 
