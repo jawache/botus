@@ -2,12 +2,12 @@
   margin-right: 5px;
 }
 
-.list-group {
+.list-group,
+.list-group-item {
   background-color: transparent;
 }
 
 .list-group-item {
-  background-color: transparent;
   border: none;
   border-top: 1px solid #434f5c;
   color: #98a6ad;
