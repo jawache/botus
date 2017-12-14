@@ -14,6 +14,7 @@ import { HttpClientModule } from "@angular/common/http";
 import { routes } from "./app.routes";
 import { TweetsService } from "./tweets/tweets.service";
 import { TradesService } from "./trades/trades.service";
+import { PortfolioService } from "./portfolio/portfolio.service";
 
 @NgModule({
   declarations: [
@@ -30,7 +31,7 @@ import { TradesService } from "./trades/trades.service";
     BrowserModule,
     RouterModule.forRoot(routes, { useHash: true })
   ],
-  providers: [TweetsService, TradesService],
+  providers: [TweetsService, TradesService, PortfolioService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

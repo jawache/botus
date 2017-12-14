@@ -1,3 +1,37 @@
-<p>
-  portfolio works!
-</p>
+<div class="wrapper">
+  <div class="container">
+    <div class="row justify-content-md-center mt-5">
+      <div class="col-md-6">
+        <div class="card-box">
+          <h4 class="header-title m-t-0">Portfolio</h4>
+          <table class="table mb-0 table-responsive">
+            <thead>
+              <tr>
+                <th>Ccy</th>
+                <th>Quantity</th>
+                <th>Rate</th>
+                <th>USD</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let position of portfolio$ | async">
+                <td>{{position.ccy}}</td>
+                <td>{{position.amount | number}}</td>
+                <td>{{position.latestRate}}</td>
+                <td [ngClass]="{'text-danger': position.usdValue < 0, 'text-success': position.usdValue >= 0}">{{position.usdValue | currency:'USD':'symbol-narrow'}}</td>
+              </tr>
+              <!--  -->
+              <!-- | currency:'USD':'symbol-narrow' -->
+              <tr *ngIf="pnl$ | async as pnl">
+                <td colspan="3">
+                  <strong>TOTAL</strong>>
+                </td>
+                <td [ngClass]="{'text-danger': pnl < 0, 'text-success': pnl >= 0}">{{pnl}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
