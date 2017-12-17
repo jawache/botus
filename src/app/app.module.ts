@@ -16,6 +16,8 @@ import { TweetsService } from "./tweets/tweets.service";
 import { TradesService } from "./trades/trades.service";
 import { PortfolioService } from "./portfolio/portfolio.service";
 
+import { Ng2TweetModule } from "ng2-tweet/lib/index";
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +31,8 @@ import { PortfolioService } from "./portfolio/portfolio.service";
   imports: [
     HttpClientModule,
     BrowserModule,
-    RouterModule.forRoot(routes, { useHash: true })
+    RouterModule.forRoot(routes, { useHash: true }),
+    Ng2TweetModule
   ],
   providers: [TweetsService, TradesService, PortfolioService],
   bootstrap: [AppComponent]
