@@ -58,27 +58,16 @@
           <div class="d-flex w-100 justify-content-between">
             <h5 class="mb-2">
 
-              <img src="assets/images/logo_postive.png"
-                   width="80"
-                   height="80"
-                   alt="logo"
-                   *ngIf="tweet.sentiment > 0.66">
-              <img src="assets/images/logo.png"
-                   width="80"
-                   height="80"
-                   alt="logo"
-                   *ngIf="tweet.sentiment <= 0.66 && tweet.sentiment >= 0.33">
-              <img src="assets/images/logo_negative.png"
-                   width="80"
-                   height="80"
-                   alt="logo"
-                   *ngIf="tweet.sentiment < 0.33">
+              <div class="emoji"
+                   [ngClass]="'emoji-' + checkSentiment(tweet.sentiment)"></div>
 
             </h5>
             <small>{{ timeAgo(tweet.ts) }}</small>
           </div>
 
-          <p class="mb-2">{{tweet.text}}</p>
+          <a [attr.href]="'https://twitter.com/statuses/' + tweet.id"
+             target="_blank"
+             class="mb-2">{{tweet.text}}</a>
 
           <small class="row justify-content-between">
             <div class="col-12 col-md-6 order-md-6 text-md-right mb-1 mb-md-0">

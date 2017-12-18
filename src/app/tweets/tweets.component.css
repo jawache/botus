@@ -1,3 +1,5 @@
+/* TODO: if using Sass refactor and setup mapped palette and bootstrap module theme */
+
 .badge {
   margin-right: 5px;
 }
@@ -11,4 +13,20 @@
   border: none;
   border-top: 1px solid #434f5c;
   color: #98a6ad;
+}
+
+.emoji {
+  font-size: 2em;
+}
+
+.emoji-positive::after {
+  content: '\1F44D'
+}
+
+.emoji-negative::after {
+  content: '\1F44E'
+}
+
+.emoji-uncertain::after {
+  content: '\1F937'
 }
