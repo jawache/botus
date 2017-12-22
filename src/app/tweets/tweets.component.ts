@@ -14,26 +14,53 @@ export class TweetsComponent implements OnInit, AfterViewInit {
 
   public tweets$: Observable<any>;
 
-  constructor(public tweetService: TweetsService) {
+  constructor(
+    private tweetService: TweetsService
+  ) {
     this.tweets$ = tweetService.getTweets();
+  }
+
+  /**
+   * Outputs date in time ago format.
+   * @param {string} time
+   * @returns {string}
+   */
+  // TODO: depending on reuse turn into a pipe or pull in package containing a pipe
+  public timeAgo(time) {
+    return time.fromNow();
+  }
+
+  /**
+   * Checks and maps the sentiment of a tweet.
+   * @param {string} sentiment
+   * @returns {string}
+   */
+  public checkSentiment(sentiment: string) {
+    if (+sentiment < 0.33) {
+      return 'uncertain';
+    } else if (+sentiment <= 0.66) {
+      return 'negative';
+    } else {
+      return 'positive';
+    }
   }
 
   ngOnInit() {
   }
 
-  ngAfterViewInit () {
-    !function(d,s,id){
-        var js: any,
-            fjs=d.getElementsByTagName(s)[0],
-            p='https';
-        if(!d.getElementById(id)){
-            js=d.createElement(s);
-            js.id=id;
-            js.src=p+"://platform.twitter.com/widgets.js";
-            fjs.parentNode.insertBefore(js,fjs);
-        }
-    }
-    (document,"script","twitter-wjs");
-}
+  ngAfterViewInit() {
+    // Add script tag for widjet.js
+    ((d, s, id) => {
+      let js: any;
+      const fjs = d.getElementsByTagName(s)[0];
+      const p = 'https';
+      if (!d.getElementById(id)) {
+        js = d.createElement(s);
+        js.id = id;
+        js.src = `${p}://platform.twitter.com/widgets.js`;
+        fjs.parentNode.insertBefore(js, fjs);
+      }
+    })(document, 'script', 'twitter-wjs');
+  }
 
 }
