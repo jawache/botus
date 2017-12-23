@@ -13,7 +13,7 @@ import { Ng2TweetService } from "ng2-tweet/lib/index";
 })
 export class TweetsComponent implements OnInit, AfterViewInit {
   public tweets$: Observable<any>;
-  public latestTweetId: string;
+  public latestTweetId: string = '929670192434745344';
 
   constructor(
     public tweetService: TweetsService,
