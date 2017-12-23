@@ -37,35 +37,39 @@
       <p class="text-muted m-b-25 font-13">
         All tweets from @realDonaldTrump
       </p>
-      <table class="table mb-0 table-responsive">
-        <thead>
-          <tr>
-            <th>Date</th>
-            <th>Time</th>
-            <th>Phrases</th>
-            <th>Sentiment</th>
-            <th>Tweet</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let tweet of tweets$ | async | slice:0:100 ">
-            <td>{{tweet.ts | date: 'fullDate'}}</td>
-            <td>{{tweet.ts | date: 'shortTime'}}</td>
-            <td>
-              <div *ngFor="let phrase of tweet.phrases | slice:0:3">
-                <ins class="text-default">
-                  {{phrase}}</ins>&nbsp; |
-              </div>
-            </td>
-            <td>
-              <img src="assets/images/logo_postive.png" width="80" height="80" alt="logo" *ngIf="tweet.sentiment > 0.66">
-              <img src="assets/images/logo.png" width="80" height="80" alt="logo" *ngIf="tweet.sentiment <= 0.66 && tweet.sentiment >= 0.33">
-              <img src="assets/images/logo_negative.png" width="80" height="80" alt="logo" *ngIf="tweet.sentiment < 0.33">
-            </td>
-            <td>{{tweet.text}}</td>
-          </tr>
-        </tbody>
-      </table>
+
+      <div class="list-group">
+        <a href="#"
+           *ngFor="let tweet of tweets$ | async | slice:0:100"
+           class="list-group-item list-group-item-action flex-column align-items-start">
+          <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-2">
+
+              <div class="emoji"
+                   [ngClass]="'emoji-' + checkSentiment(tweet.sentiment)"></div>
+
+            </h5>
+            <small>{{ timeAgo(tweet.ts) }}</small>
+          </div>
+
+          <a [attr.href]="'https://twitter.com/statuses/' + tweet.id"
+             target="_blank"
+             class="mb-2">{{tweet.text}}</a>
+
+          <small class="row justify-content-between">
+            <div class="col-12 col-md-6 order-md-6 text-md-right mb-1 mb-md-0">
+              <span *ngFor="let phrase of tweet.phrases | slice:0:3; let last = last">
+                <ins class="text-default">{{phrase}}</ins>
+                <span *ngIf="!last"> | </span>
+              </span>
+            </div>
+            <div class="col-12 col-md-6 order-md-1">
+              {{tweet.ts | date: 'fullDate'}}
+            </div>
+          </small>
+
+        </a>
+      </div>
     </div>
 
 
