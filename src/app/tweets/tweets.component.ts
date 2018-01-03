@@ -1,21 +1,23 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { TweetsService } from './tweets.service';
 import { Observable } from 'rxjs/Observable';
+import { Ng2TweetService } from "ng2-tweet/lib/index";
 
 
 
 
 @Component({
-  selector: 'app-tweets',
-  templateUrl: './tweets.component.html',
-  styleUrls: ['./tweets.component.css']
+  selector: "app-tweets",
+  templateUrl: "./tweets.component.html",
+  styleUrls: ["./tweets.component.css"]
 })
 export class TweetsComponent implements OnInit, AfterViewInit {
-
   public tweets$: Observable<any>;
+  public latestTweetId: string = '929670192434745344';
 
   constructor(
-    private tweetService: TweetsService
+    public tweetService: TweetsService,
+    private ng2TweetService: Ng2TweetService
   ) {
     this.tweets$ = tweetService.getTweets();
   }
@@ -49,18 +51,5 @@ export class TweetsComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    // Add script tag for widjet.js
-    ((d, s, id) => {
-      let js: any;
-      const fjs = d.getElementsByTagName(s)[0];
-      const p = 'https';
-      if (!d.getElementById(id)) {
-        js = d.createElement(s);
-        js.id = id;
-        js.src = `${p}://platform.twitter.com/widgets.js`;
-        fjs.parentNode.insertBefore(js, fjs);
-      }
-    })(document, 'script', 'twitter-wjs');
   }
-
 }
