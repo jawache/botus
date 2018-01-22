@@ -24,9 +24,9 @@
               <!-- | currency:'USD':'symbol-narrow' -->
               <tr *ngIf="pnl$ | async as pnl">
                 <td colspan="3">
-                  <strong>TOTAL</strong>>
+                  <strong>TOTAL</strong>
                 </td>
-                <td [ngClass]="{'text-danger': pnl < 0, 'text-success': pnl >= 0}">{{pnl}}</td>
+                <td [ngClass]="{'text-danger': pnl < 0, 'text-success': pnl >= 0}">{{pnl | currency:'USD':'symbol-narrow'}}</td>
               </tr>
             </tbody>
           </table>

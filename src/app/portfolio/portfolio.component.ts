@@ -14,10 +14,9 @@ export class PortfolioComponent implements OnInit {
 
   constructor(public portfolioService: PortfolioService) {
     this.portfolio$ = portfolioService.getPortfolio();
-    this.pnl$ = this.portfolio$.scan((acc, curr) => {
-      console.log(curr);
-      return acc + curr.usdValue;
-    }, 0);
+    this.pnl$ = this.portfolio$.map(portfolio => {
+      return portfolio.reduce((acc, curr) => acc + curr.usdValue, 0);
+    });
   }
 
   ngOnInit() {}

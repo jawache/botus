@@ -14,7 +14,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let trade of trades$ | async">
+              <tr *ngFor="let trade of trades$ | async" [ngClass]="{'text-danger': trade.side == 'SELL', 'text-success':  trade.side == 'BUY'}">
                 <td>{{trade.ts | date: 'short'}}</td>
                 <td>{{trade.ccy}}</td>
                 <td>{{trade.side}}</td>

@@ -5,73 +5,69 @@
     <div class="row">
       <div class="col-sm-12">
         <div class="page-title-box">
-          <h4 class="page-title">Latest Tweet</h4>
+          <div class="btn-group pull-right">
+            <ol class="breadcrumb hide-phone p-0 m-0">
+              <!-- <li class="breadcrumb-item"><a href="#">Tweets</a></li>
+                            <li class="breadcrumb-item"><a href="#">Extras</a></li> -->
+              <li class="breadcrumb-item active">Tweets</li>
+            </ol>
+          </div>
+          <h4 class="page-title">Tweets</h4>
         </div>
       </div>
     </div>
     <!-- end page title end breadcrumb -->
 
-    <div class="row row-eq-height">
-      <div class="col-lg-6">
-        <div class="card-box">
-          <ng2-tweet tweetId="{{latestTweetId}}"></ng2-tweet>
+
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="timeline">
+          <!-- <article class="timeline-item alt">
+                        <div class="text-right">
+                            <div class="time-show first">
+                                <a href="#" class="btn btn-primary w-lg">Today</a>
+                            </div>
+                        </div>
+                    </article> -->
+
+          <article class="timeline-item" *ngFor="let tweet of tweets$ | async | slice:0:500; let odd=odd; let even=even;" [ngClass]="{ alt: even }">
+            <div class="timeline-desk">
+              <div class="panel">
+                <div class="panel-body">
+                  <span [ngClass]="{ 'arrow-alt': even, 'arrow': odd }"></span>
+                  <span class="timeline-icon emoji-certain"></span>
+                  <h4>{{ timeAgo(tweet.ts) }}
+                    <div class="emoji" [ngClass]="'emoji-' + checkSentiment(tweet.sentiment)"></div>
+                  </h4>
+                  <p class="timeline-date text-muted">
+                    <small>{{tweet.ts | date: 'shortTime'}}</small>
+                  </p>
+                  <p>{{tweet.text}}
+
+                    <a [attr.href]="'https://twitter.com/statuses/' + tweet.id" target="_blank">
+                      <i class="fa fa-external-link" aria-hidden="true"></i>
+                    </a>
+                  </p>
+                  <p>
+                    <span class="text-muted small" *ngFor="let phrase of tweet.phrases | slice:0:3; let last = last">
+                      <code class="text-default">{{phrase}}</code>
+                      <span *ngIf="!last"> | </span>
+                    </span>
+                  </p>
+
+                  <p>
+                    <span class="badge" [ngClass]="'badge-' + checkSentiment(tweet.sentiment)">{{tweet.sentiment | number: '0.2'}}</span>
+                  </p>
+
+                </div>
+              </div>
+            </div>
+          </article>
         </div>
       </div>
-      <!-- end col -->
-
-      <div class="col-lg-6">
-        <div class="card-box">
-          <h4 class="left-text">This is a
-            <span class="text-success">positive</span> tweet about
-            <ins class="text-default">Vietnam</ins>,
-            <ins class="text-default">Philippines</ins>
-          </h4>
-        </div>
-      </div>
-      <!-- end col -->
     </div>
-    <!--end row/ WEATHER -->
-
-    <div class="card-box">
-      <h4 class="header-title m-t-0">All Tweets</h4>
-      <p class="text-muted m-b-25 font-13">
-        All tweets from @realDonaldTrump
-      </p>
-
-      <div class="list-group">
-        <a href="#"
-           *ngFor="let tweet of tweets$ | async | slice:0:100"
-           class="list-group-item list-group-item-action flex-column align-items-start">
-          <div class="d-flex w-100 justify-content-between">
-            <h5 class="mb-2">
-
-              <div class="emoji"
-                   [ngClass]="'emoji-' + checkSentiment(tweet.sentiment)"></div>
-
-            </h5>
-            <small>{{ timeAgo(tweet.ts) }}</small>
-          </div>
-
-          <a [attr.href]="'https://twitter.com/statuses/' + tweet.id"
-             target="_blank"
-             class="mb-2">{{tweet.text}}</a>
-
-          <small class="row justify-content-between">
-            <div class="col-12 col-md-6 order-md-6 text-md-right mb-1 mb-md-0">
-              <span *ngFor="let phrase of tweet.phrases | slice:0:3; let last = last">
-                <ins class="text-default">{{phrase}}</ins>
-                <span *ngIf="!last"> | </span>
-              </span>
-            </div>
-            <div class="col-12 col-md-6 order-md-1">
-              {{tweet.ts | date: 'fullDate'}}
-            </div>
-          </small>
-
-        </a>
-      </div>
-    </div>
-
+    <!-- end row -->
 
   </div>
+  <!-- end container -->
 </div>

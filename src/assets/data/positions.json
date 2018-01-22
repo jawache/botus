@@ -1,80 +1,80 @@
 {
   "USD": {
     "ccy": "USD",
-    "amount": -1648.6687173066555,
+    "amount": -2163.2930311465516,
     "latestRate": 1,
-    "usdValue": -1648.67
-  },
-  "PHP": {
-    "ccy": "PHP",
-    "amount": 15364.920000000002,
-    "latestRate": 50.634,
-    "usdValue": 303.45
-  },
-  "CNY": {
-    "ccy": "CNY",
-    "amount": 664.0099999999999,
-    "latestRate": 6.5395,
-    "usdValue": 101.54
+    "usdValue": -2163.29
   },
   "JPY": {
     "ccy": "JPY",
-    "amount": 33654.12,
-    "latestRate": 111.54493152,
-    "usdValue": 301.71
+    "amount": 56343.93,
+    "latestRate": 110.869,
+    "usdValue": 508.2
   },
   "SGD": {
     "ccy": "SGD",
     "amount": 135.88,
-    "latestRate": 1.345397,
-    "usdValue": 101
+    "latestRate": 1.31945,
+    "usdValue": 102.98
+  },
+  "ILS": {
+    "ccy": "ILS",
+    "amount": 1423.86,
+    "latestRate": 3.420095,
+    "usdValue": 416.32
   },
   "PKR": {
     "ccy": "PKR",
     "amount": 10537.5,
-    "latestRate": 104.629497,
-    "usdValue": 100.71
+    "latestRate": 110.7549,
+    "usdValue": 95.14
   },
   "JMD": {
     "ccy": "JMD",
     "amount": 12984,
-    "latestRate": 125.102918,
-    "usdValue": 103.79
+    "latestRate": 124.453954,
+    "usdValue": 104.33
   },
   "JOD": {
     "ccy": "JOD",
-    "amount": 70.9,
-    "latestRate": 0.709001,
-    "usdValue": 100
-  },
-  "VEF": {
-    "ccy": "VEF",
-    "amount": 1017.05,
-    "latestRate": 9.985022,
-    "usdValue": 101.86
+    "amount": 283.87,
+    "latestRate": 0.709503,
+    "usdValue": 400.1
   },
   "INR": {
     "ccy": "INR",
     "amount": 6415.11,
-    "latestRate": 64.555,
-    "usdValue": 99.37
-  },
-  "GBP": {
-    "ccy": "GBP",
-    "amount": 153.95,
-    "latestRate": 0.7498,
-    "usdValue": 205.32
+    "latestRate": 63.9115,
+    "usdValue": 100.37
   },
   "PLN": {
     "ccy": "PLN",
     "amount": 371.28,
-    "latestRate": 3.52795,
-    "usdValue": 105.24
+    "latestRate": 3.40642,
+    "usdValue": 108.99
   },
   "GEL": {
     "ccy": "GEL",
     "amount": 240.79,
-    "latestRate": 2.697175,
-    "usdValue": 89.27
+    "latestRate": 2.566837,
+    "usdValue": 93.81
+  },
+  "SAR": {
+    "ccy": "SAR",
+    "amount": 375.03,
+    "latestRate": 3.75115,
+    "usdValue": 99.98
+  },
+  "AUD": {
+    "ccy": "AUD",
+    "amount": 131.64,
+    "latestRate": 1.248445,
+    "usdValue": 105.44
+  },
+  "SEK": {
+    "ccy": "SEK",
+    "amount": 893.86,
+    "latestRate": 8.038181,
+    "usdValue": 111.2
   }
 }

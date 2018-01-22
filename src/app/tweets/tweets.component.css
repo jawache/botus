@@ -20,13 +20,18 @@
 }
 
 .emoji-positive::after {
-  content: '\1F44D'
+  content: "\1F600";
 }
 
 .emoji-negative::after {
-  content: '\1F44E'
+  content: "\1F628";
 }
 
 .emoji-uncertain::after {
-  content: '\1F937'
+  content: "\1F636";
+}
+
+/* Fixing CSS from theme */
+.timeline-item .panel .panel-body p + p {
+  margin-top: 10px !important;
 }

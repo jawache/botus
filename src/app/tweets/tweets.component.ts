@@ -39,11 +39,11 @@ export class TweetsComponent implements OnInit, AfterViewInit {
    */
   public checkSentiment(sentiment: string) {
     if (+sentiment < 0.33) {
-      return 'uncertain';
+      return 'danger';
     } else if (+sentiment <= 0.66) {
-      return 'negative';
+      return '';
     } else {
-      return 'positive';
+      return 'success';
     }
   }
 
